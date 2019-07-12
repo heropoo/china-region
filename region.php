@@ -52,8 +52,9 @@ foreach ($dst['provinces'] as $province_code => $province){
     foreach ($province['cities'] as $city){
         if(empty($city['areas'])){
             $city_code = $city['code'];
-            $dst['provinces'][$province_code]['cities'][$city_code]['areas'] = [
-                'code'=> strval($city_code + 1),
+            $area_code = strval($city_code + 1);
+            $dst['provinces'][$province_code]['cities'][$city_code]['areas'][$area_code] = [
+                'code'=> $area_code,
                 'name'=>'市辖区'
             ];
         }
